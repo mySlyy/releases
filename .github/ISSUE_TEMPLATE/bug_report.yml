@@ -1,0 +1,83 @@
+name: Bug report
+description: Report something that is not working.
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Fill every required field so we can reproduce the issue.
+
+        Settings → Info shows the app version and can open this form with it filled in.
+
+        Issues are public. Remove API keys, tokens, file paths and personal data from logs and screenshots.
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: What broke, and what is the impact?
+      placeholder: Opening Settings → Models crashes before the provider list appears.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Numbered steps from a cold start when possible.
+      placeholder: |
+        1. Open the app
+        2. Open Settings → Models
+        3. Click Add provider
+        4. The window closes
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      placeholder: The add-provider dialog opens.
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      placeholder: The app window disappears with no error dialog.
+    validations:
+      required: true
+  - type: input
+    id: app-version
+    attributes:
+      label: App version
+      description: Copy from Settings → Info. Example 0.13.3
+      placeholder: "0.13.3"
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options:
+        - macOS
+        - Windows
+        - Linux
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Extra environment
+      description: Architecture, protocol/host versions, and install type (DMG, NSIS, AppImage, deb, rpm, development). Settings → Info fills this when opened from the app.
+      placeholder: darwin arm64 · protocol 12 · host 0.13.3 · macOS 15.4
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Settings → Info → Open logs. Paste the relevant lines only.
+      render: shell
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Optional. Drag and drop images.
