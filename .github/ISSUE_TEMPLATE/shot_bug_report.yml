@@ -1,0 +1,69 @@
+# Slyy Shot (macOS screenshot tool, source github.com/mySlyy/shot).
+# The app opens this form from its menu bar menu (Report a Bug…) and fills
+# app-version and environment via query parameters: keep these ids stable.
+name: Slyy Shot bug report
+description: Report something in Slyy Shot (macOS screenshot tool) that is not working.
+title: "[Shot] "
+labels: ["bug", "slyy-shot"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Fill every required field so we can reproduce the issue.
+
+        Slyy Shot menu bar icon → Report a Bug… opens this form with the app version and macOS filled in.
+
+        Issues are public. Remove personal data, file paths and anything private from text and screenshots before you attach them.
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: What broke, and what is the impact?
+      placeholder: Capture Area (⌘⇧5) does nothing on the second monitor.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Numbered steps from a fresh start of Slyy Shot when possible.
+      placeholder: |
+        1. Move the mouse to the second monitor
+        2. Press ⌘⇧5
+        3. Drag an area
+        4. No shot is saved
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      placeholder: The area is saved to ~/Pictures/Slyy Shot and copied to the clipboard.
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      placeholder: The crosshair appears, but after the drag nothing happens.
+    validations:
+      required: true
+  - type: input
+    id: app-version
+    attributes:
+      label: App version
+      description: Shown at the bottom of the Slyy Shot menu. Example 2.2.1
+      placeholder: "2.2.1"
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: macOS version, Mac chip, number of displays, install type (DMG or Terminal installer). Report a Bug… fills macOS and chip.
+      placeholder: macOS 15.4 · arm64 · 2 displays · DMG
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Optional. Drag and drop images. Check them for private content first.
